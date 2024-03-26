@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes animation-slider {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Good Timing';
+  src: url('/fonts/GoodTiming.otf') format('opentype');
+}
+
+.clash-display {
+  font-family: 'Clash Display';
+}
+
+.good-timing {
+  font-family: 'Good Timing';
+}
+
+.transition-colors-all {
+  transition-property: all;
+  transition-duration: .3s;
+}
+
+.animation-slider {
+  animation: animation-slider 10s infinite linear;
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "colors": {
+      "primary": "#3BFF4F",
+      "secondary": "#1E1E1E"
+    },
+    "title": "THE MATRIX",
+    "legend": "So, blue pill or red pill?",
+    "slider": "MATRIX",
+    "description": "<b>The Matrix</b> is a groundbreaking science-fiction film directed by the Wachowski brothers, released in 1999. This iconic film marked a milestone in cinema history for its complex plot, groundbreaking visual effects and profound philosophical themes.<br/><br/>Beyond its immediate impact, <b>The Matrix</b> continues to provoke debate and diverse interpretations on subjects such as virtual reality, technology, social control and the quest for truth.",
+    "sticker": "matrix-sticker.png",
+    "images": [
+      "https://images.unsplash.com/photo-1630599375918-4426b69b520d?q=80&w=2234&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1630599375918-4426b69b520d?q=80&w=2234&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1630599375918-4426b69b520d?q=80&w=2234&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ]
+  },
+  {
+    "colors": {
+      "primary": "#FE7E00",
+      "secondary": "#410093"
+    },
+    "title": "SPICE GIRLS",
+    "legend": "I wanna really wanna zig-a-zig ah!",
+    "slider": "SPICE GIRLS",
+    "description": "The <b>Spice Girls</b> are a British musical group formed in London in 1994. Comprising five members - Melanie Brown (nicknamed Scary Spice), Melanie Chisholm (Sporty Spice), Emma Bunton (Baby Spice), Geri Halliwell (Ginger Spice) and Victoria Beckham (Posh Spice) - the group became one of the most striking pop phenomena of the 1990s.<br/><br/>They have also been acclaimed for their message of female empowerment and individuality, embodying the <b>Girl Power</b> ideals that have inspired generations of young girls around the world.",
+    "sticker": "spice-girls-sticker.png",
+    "images": [
+      "spice-girls-1.jpg",
+      "spice-girls-2.jpg",
+      "spice-girls-3.jpg"
+    ]
+  },
+  {
+    "colors": {
+      "primary": "#3A85FF",
+      "secondary": "#FFC700"
+    },
+    "title": "TAMAGOTCHI",
+    "legend": "Bip, bip bip, biiiiiiiiiiiiiiiiiiiiiip",
+    "slider": "TAMAGOTCHI",
+    "description": "<b>Tamagotchis</b> are virtual electronic toys created by the Japanese company Bandai. First launched in 1996, they quickly became a worldwide phenomenon, particularly among children and teenagers.<br/><br/>Although their popularity has waned over time, <b>Tamagotchis</b> remain a pop culture icon of the 1990s and continue to have a devoted fan base around the world.",
+    "sticker": "tamagotchi-sticker.png",
+    "images": [
+      "tamagotchi-1.jpg",
+      "tamagotchi-2.jpg",
+      "tamagotchi-3.jpg"
+    ]
+  },
+  {
+    "colors": {
+      "primary": "#FBD743",
+      "secondary": "#FF1F1F"
+    },
+    "title": "POKÉMON",
+    "legend": "Gotta catch 'em all !",
+    "slider": "POKÉMON",
+    "description": "<b>Pokémon</b> is a media franchise developed by Nintendo, Game Freak and Creatures Inc. The Pokémon franchise has become one of the world's most popular and profitable entertainment franchises, encompassing a wide range of media, including video games, TV series, movies, trading card games, toys and much more.<br/><br/>Today, the Game Boy <b>Pokémon</b> games continue to be revered by nostalgic gamers and are considered timeless classics of video game history.",
+    "sticker": "pokemon-sticker.png",
+    "images": [
+      "pokemon-1.jpg",
+      "pokemon-2.jpg",
+      "pokemon-3.jpg"
+    ]
+  }
+]

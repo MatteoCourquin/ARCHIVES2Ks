@@ -1,12 +1,17 @@
+import Layout from '@/app/layout/default';
+import '../app/globals.css';
+
 export const metadata = {
-  title: "ARCHIVES2Ks",
+  title: 'ARCHIVES2Ks',
   description: 'The site that sends you straight to 2000 🚀',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body>
+        <Layout>{children}</Layout>
+      </body>
     </html>
   );
 }

@@ -1,20 +1,29 @@
 'use client';
 
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { useRef } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { ColorsContext } from '../app/layout/default';
+import View from './components/view';
+import elementsJSON from './utils/elements.json';
 
 export default function Home() {
-  const element = useRef();
+  const [elements, setElements] = useState(elementsJSON);
+  const { colors, setColors } = useContext(ColorsContext);
+  const [active, setActive] = useState(0);
 
-  useGSAP(() => {
-    const tl = gsap.timeline();
-    tl.from(element.current, { duration: 1, opacity: 0, y: 100 });
-  });
+  useEffect(() => {
+    setColors({
+      primary: elements[active]?.colors.primary,
+      secondary: elements[active]?.colors.secondary,
+    });
+  }, [active, elements]);
+
+  if (!elements.length || !colors.primary) return;
 
   return (
-    <main>
-      <h1 ref={element}>INDEX</h1>
-    </main>
+    <div className='h-[calc(100vh-64px)] overflow-y-scroll w-fit'>
+      {elements.map((element, index) => (
+        <View key={index} {...element} />
+      ))}
+    </div>
   );
 }
