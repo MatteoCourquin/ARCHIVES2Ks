@@ -12,6 +12,10 @@
   }
 }
 
+body {
+  background: #333;
+}
+
 @font-face {
   font-family: 'Clash Display';
   src: url('/fonts/ClashDisplay.ttf') format('truetype');
@@ -31,6 +35,7 @@
 }
 
 .transition-colors-all {
+  /* transition-property: background-color, border-color, color, fill, stroke; */
   transition-property: all;
   transition-duration: .3s;
 }

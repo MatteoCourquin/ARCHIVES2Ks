@@ -1,5 +1,8 @@
 'use client';
 
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useContext, useEffect, useState } from 'react';
 import { ColorsContext } from '../app/layout/default';
 import View from './components/view';
@@ -9,6 +12,33 @@ export default function Home() {
   const [elements, setElements] = useState(elementsJSON);
   const { colors, setColors } = useContext(ColorsContext);
   const [active, setActive] = useState(0);
+
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('.container-scroll', {
+      scrollTrigger: {
+        trigger: '.content',
+        start: 'top top',
+        end: 'bottom top',
+        // markers: true,
+      },
+      opacity: 0,
+      ease: 'power1.inOut',
+    });
+    gsap.to('.image', {
+      scrollTrigger: {
+        trigger: '.content',
+        start: 'top top',
+        end: 'bottom top',
+        markers: true,
+        scrub: true,
+        pin: true,
+      },
+      x: 1000,
+      ease: 'none',
+    });
+  });
 
   useEffect(() => {
     setColors({
@@ -20,7 +50,7 @@ export default function Home() {
   if (!elements.length || !colors.primary) return;
 
   return (
-    <div className='h-[calc(100vh-64px)] overflow-y-scroll w-fit'>
+    <div className='h-screen w-fit'>
       {elements.map((element, index) => (
         <View key={index} {...element} />
       ))}

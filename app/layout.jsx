@@ -9,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body>
+      <body style={{ height: '500vh' }}>
         <Layout>{children}</Layout>
       </body>
     </html>

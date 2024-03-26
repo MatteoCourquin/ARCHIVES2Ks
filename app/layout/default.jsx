@@ -14,12 +14,12 @@ const Layout = ({ children }) => {
   return (
     <ColorsContext.Provider value={{ colors, setColors }}>
       <div
-        className='w-screen h-screen z-0 transition-colors-all fixed'
+        className='w-screen h-screen z-0 transition-colors-all'
         style={{ backgroundColor: colors.secondary }}
       >
         <Background color={colors.primary} />
         <header
-          className='h-16 w-full border-b-2 flex items-center px-6 z-10 transition-colors-all'
+          className='h-16 w-full border-b-2 flex items-center px-6 z-10 transition-colors-all fixed'
           style={{ borderColor: colors.primary }}
         >
           <h1
@@ -29,7 +29,9 @@ const Layout = ({ children }) => {
             ARCHIVES2Ks
           </h1>
         </header>
-        <main className='h-[calc(100vh-64px)] z-10'>{children}</main>
+        <main className='container-scroll h-[calc(100vh-64px)] z-10'>
+          {children}
+        </main>
       </div>
     </ColorsContext.Provider>
   );

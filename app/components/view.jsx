@@ -1,11 +1,12 @@
 import { useContext } from 'react';
 import { ColorsContext } from '../layout/default';
 import Arrow from './icons';
+import clsx from 'clsx';
 
-const View = ({ description, slider, legend, title, images, className }) => {
+const View = ({ description, slider, legend, title, images }) => {
   const { colors } = useContext(ColorsContext);
   return (
-    <div className='w-screen h-full grid grid-cols-layout panel'>
+    <div className='w-screen h-full grid grid-cols-layout content pt-16 fixed'>
       <div
         className='border-r-2 p-6 z-10 transition-colors-all'
         style={{ borderColor: colors.primary }}
@@ -46,9 +47,11 @@ const View = ({ description, slider, legend, title, images, className }) => {
             {images.map((src, index) => (
               <div key={index} className='w-1/3 h-full transition-all'>
                 <img
-                  className='w-full h-full object-cover rounded-main transition-colors-all'
+                  className={clsx(
+                    'w-full h-full object-cover rounded-main transition-colors-all image'
+                  )}
                   style={{ boxShadow: `14px 14px 0px 0px ${colors.primary}` }}
-                  src={src}
+                  src={src ? src : ''}
                   alt=''
                 />
               </div>
