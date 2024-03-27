@@ -75,3 +75,24 @@ body {
 .skew-x-shakeng:hover {
   animation: skew-x-shakeng 1s infinite;
 }
+
+
+
+
+
+/* Variable Font */
+.textAnim{
+  font-family: 'Clash Display';
+  font-size: 4vw;
+  line-height: 6vw;
+  text-align:center;
+}
+
+.textAnim .char {
+  font-variation-settings: 'wght' var(--wght);
+}
+
+
+
+
+
