@@ -67,9 +67,13 @@ body {
 }
 
 .transition-colors-all {
-  /* transition-property: background-color, border-color, color, fill, stroke; */
-  transition-property: all;
+  transition-property: background-color, border-color, color, fill, stroke, stop-color;
   transition-duration: 1s;
+}
+
+.transition-width-all {
+  transition-property: width;
+  transition-duration: .3s;
 }
 
 .animation-slider {
@@ -88,10 +92,4 @@ body {
 
 .textAnim .anim {
   font-variation-settings: 'wght' var(--wght);
-  opacity: 1;
 }
-
-
-
-
-

@@ -4,21 +4,20 @@ import { ColorsContext } from '../layout/default';
 import Arrow from './icons';
 import VariableFont from './variableFont';
 
-
-
 const View = ({
   description,
   legend,
   title,
   images,
   active,
+  setActive,
   sticker,
   elementsLength,
   refs,
   changeElement,
 }) => {
   const { colors } = useContext(ColorsContext);
-  const [hoveredIndex, setHoveredIndex] = useState(0)
+  const [hoveredIndex, setHoveredIndex] = useState(0);
 
   return (
     <div className='w-screen h-full grid grid-cols-layout pt-16'>
@@ -54,7 +53,6 @@ const View = ({
       </div>
 
       <div className='flex flex-col z-10'>
-        
         <div className='flex overflow-hidden w-[calc(100vw-260px)] pt-6'>
           <p
             className='transition-colors-all whitespace-nowrap animation-slider'
@@ -78,12 +76,17 @@ const View = ({
           </p>
         </div>
         <div className='flex flex-col justify-between h-full pt-10 p-6'>
-          <div className='flex w-full gap-10 h-4/6 pr-4' onMouseLeave={() => setHoveredIndex(0)}>
+          <div
+            className='flex w-full gap-10 h-4/6 pr-4'
+            onMouseLeave={() => setHoveredIndex(0)}
+          >
             {images.map((src, index) => (
               <div
                 key={index}
                 className={clsx(
-                  index == hoveredIndex ? ' flex-grow w-3/5' : 'flex-shrink w-1/5',
+                  index == hoveredIndex
+                    ? ' flex-grow w-3/5'
+                    : 'flex-shrink w-1/5',
                   'h-full transition-all min-w-44 duration-300'
                 )}
                 onMouseOver={() => setHoveredIndex(index)}
@@ -94,7 +97,7 @@ const View = ({
                     'w-full h-full object-cover rounded-main image translate-x-96 opacity-0'
                   )}
                   style={{ boxShadow: `14px 14px 0px 0px ${colors.primary}` }}
-                  src={src ? '/images/illustrations/'+src : ''}
+                  src={src ? '/images/illustrations/' + src : ''}
                   alt=''
                 />
               </div>
@@ -117,8 +120,26 @@ const View = ({
                 ))}
               </p>
 
-              <VariableFont color={colors.primary} title={title}/>
-
+              <VariableFont
+                color={colors.primary}
+                title={title}
+                titleRef={refs.titleRef}
+              />
+              <div className='flex gap-2 pt-2'>
+                {Array(elementsLength)
+                  .fill()
+                  .map((_, index) => (
+                    <div
+                      key={index}
+                      style={{ backgroundColor: colors.primary }}
+                      onClick={() => changeElement(index)}
+                      className={clsx(
+                        active === index ? 'w-6 opacity-100' : 'w-3 opacity-40',
+                        'h-3 rounded-full transition-colors-all transition-width-all cursor-pointer'
+                      )}
+                    ></div>
+                  ))}
+              </div>
             </div>
             <Arrow
               onClick={() =>

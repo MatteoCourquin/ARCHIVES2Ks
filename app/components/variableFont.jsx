@@ -1,15 +1,15 @@
 import gsap from 'gsap';
 
-const VariableFont = ({ color, title }) => {
-  gsap.to('.firstAnim', {
-    opacity: 1,
-    duration: 0.5,
-    stagger: {
-      from: 'start',
-      each: 0.1,
-    },
-    ease: 'back.inOut',
-  });
+const VariableFont = ({ color, title, titleRef }) => {
+  // gsap.to('.firstAnim', {
+  //   opacity: 1,
+  //   duration: 0.5,
+  //   stagger: {
+  //     from: 'start',
+  //     each: 0.1,
+  //   },
+  //   ease: 'back.inOut',
+  // });
 
   function updateTextMouse(e) {
     const textAnim = document.querySelector('.textAnim');
@@ -17,30 +17,22 @@ const VariableFont = ({ color, title }) => {
 
     const textRect = textAnim.getBoundingClientRect();
 
-    // Calculer les coordonnées du centre de l'élément de texte
-    const centerX = textRect.left + textRect.width / 2;
-    const centerY = textRect.top + textRect.height / 2;
-
-    // Calculer les distances horizontale et verticale de la souris au centre de l'élément
     const distanceX = Math.max(
-      Math.abs(e.clientX - centerX) - textRect.width / 2,
-      0
+      Math.abs(e.clientX - textRect.left + textRect.width / 2) -
+        textRect.width / 2
     );
     const distanceY = Math.max(
-      Math.abs(e.clientY - centerY) - textRect.height / 2,
-      0
+      Math.abs(e.clientY - textRect.top + textRect.height / 2) -
+        textRect.height / 2
     );
 
-    // Calculer la distance euclidienne depuis le bord le plus proche de l'élément
     const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
 
-    // Déterminer le poids de la police basé sur la distance
-    const maxDistance = 400; // Distance maximale pour influencer le poids
-    const minWeight = 400;
+    const maxDistance = 400;
+    const minWeight = 100;
     const maxWeight = 900;
     let weight;
 
-    // Ajuster le poids de la police en fonction de la distance à l'élément
     if (distance < maxDistance) {
       const distanceRatio = distance / maxDistance;
       weight = maxWeight - distanceRatio * (maxWeight - minWeight);
@@ -48,14 +40,14 @@ const VariableFont = ({ color, title }) => {
       weight = minWeight;
     }
 
-    gsap.to('.anim', {
+    gsap.to('.anim ', {
       '--wght': weight,
-      duration: 0.5,
+      duration: 0.2,
       stagger: {
         from: 'start',
-        each: 0.1,
+        each: 0.01,
       },
-      ease: 'sine.out',
+      ease: 'none',
     });
   }
 
@@ -63,11 +55,15 @@ const VariableFont = ({ color, title }) => {
 
   return (
     <h1
-      className='clash-display w-full whitespace-nowrap font-black text-[8vw] leading-none transition-colors-all textAnim'
+      className='clash-display w-full whitespace-nowrap text-[8vw] leading-none transition-colors-all textAnim'
       style={{ color: color }}
     >
       {title.split('').map((letter, index) => (
-        <span key={index} className='inline-block anim firstAnim'>
+        <span
+          key={index}
+          className='inline-block opacity-0 -translate-y-8 anim font-thin anim'
+          ref={(el) => (titleRef.current[index] = el)}
+        >
           {letter === ' ' ? '\u00A0' : letter}
         </span>
       ))}
