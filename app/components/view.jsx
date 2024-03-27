@@ -125,7 +125,7 @@ const View = ({
                 title={title}
                 titleRef={refs.titleRef}
               />
-              <div className='flex gap-2 pt-2'>
+              <div className='flex gap-2 pt-2 px-12'>
                 {Array(elementsLength)
                   .fill()
                   .map((_, index) => (
