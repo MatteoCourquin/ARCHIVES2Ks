@@ -113,7 +113,7 @@ export default function Home() {
           '--wght': 900,
           opacity: 0, 
           repeat: 0,
-          duration: 0.5,
+          // duration: 0.5,
           stagger: {
             from: 'start',
             each: 0.1,

@@ -2,22 +2,6 @@ import gsap from 'gsap';
 
 const VariableFont = ({ color, title }) => {
 
-//   function updateText() {
-//     gsap.to('.anim', {
-//       '--wght': 900,
-//       opacity: 1, 
-//       duration: 1,
-//       repeat: 0,
-//       stagger: {
-//         from: 'start',
-//         each: 0.1,
-//       },
-//       ease: 'back.inOut'
-//     });
-// } 
-
-//   updateText();
-
   function updateTextMouse(e) {
   const textAnim = document.querySelector('.textAnim');
   if (!textAnim) return;
