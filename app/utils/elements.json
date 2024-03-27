@@ -88,5 +88,20 @@
       "world-cup-98-2.jpg",
       "world-cup-98-3.jpg"
     ]
+  },
+  {
+    "colors": {
+      "primary": "#E8E8E8",
+      "secondary": "#191919"
+    },
+    "title": "FRIENDS",
+    "legend": "They don't know that we know they know we know",
+    "description": "Friends is an American television sitcom created by David Crane and Marta Kauffman. The show revolves around a group of six friends living in Manhattan: Ross Geller, Rachel Green, Monica Geller, Chandler Bing, Joey Tribbiani, and Phoebe Buffay. Even after its conclusion, Friends remains a cultural phenomenon, with a dedicated fanbase and continued popularity through reruns and streaming platforms. Its timeless humor and relatable characters continue to resonate with audiences around the world, cementing its status as a classic sitcom.",
+    "sticker": "sticker-friends.png",
+    "images": [
+      "friends-1.jpg",
+      "friends-2.jpg",
+      "friends-3.jpg"
+    ]
   }
 ]
