@@ -14,24 +14,77 @@ export default function Home() {
   const textRef = useRef([]);
   const imagesRef = useRef([]);
   const descriptionRef = useRef([]);
+  const stickerRef = useRef();
+  const refs = { textRef, imagesRef, descriptionRef, stickerRef };
 
   useEffect(() => {
     setColors({
       primary: elements[active]?.colors.primary,
       secondary: elements[active]?.colors.secondary,
     });
+    startAnimation();
   }, [elements, active]);
 
   const startAnimation = () => {
     timeline.current
       .add(
+        gsap.to(stickerRef.current, {
+          rotate: '0deg',
+          opacity: 1,
+          duration: 1,
+          ease: 'power4.in',
+        })
+      )
+      .add(
+        gsap.to(descriptionRef.current, {
+          opacity: 1,
+          y: 0,
+          ease: 'power4.inOut',
+          duration: 0.5,
+          stagger: 0.002,
+        })
+      )
+      .add(
         gsap.to(imagesRef.current, {
-          xPercent: 100,
+          x: 0,
+          opacity: 1,
+          ease: 'power4.inOut',
+          stagger: 0.05,
+        }),
+        '=-0.4'
+      )
+      .add(
+        gsap.to(textRef.current, {
+          y: 0,
+          opacity: 1,
+          ease: 'power4.inOut',
+          stagger: 0.02,
+        }),
+        '=-0.6'
+      )
+      .play();
+  };
+
+  const fromAnimation = (onCompleteCallback) => {
+    timeline.current
+      .clear()
+      .add(
+        gsap.to(descriptionRef.current, {
+          opacity: 0,
+          y: 30,
+          ease: 'power4.inOut',
+          duration: 0.5,
+          stagger: 0.002,
+        })
+      )
+      .add(
+        gsap.to(imagesRef.current, {
+          x: 384,
           opacity: 0,
           ease: 'power4.inOut',
           stagger: 0.05,
         }),
-        '=+0'
+        '=-0.4'
       )
       .add(
         gsap.to(textRef.current, {
@@ -40,30 +93,27 @@ export default function Home() {
           ease: 'power4.inOut',
           stagger: 0.02,
         }),
-        '=-0.3'
+        '=-0.6'
       )
       .add(
-        gsap.to(descriptionRef.current, {
+        gsap.to(stickerRef.current, {
+          rotate: '3280deg',
+          duration: 1,
           opacity: 0,
-          ease: 'power4.inOut',
-          duration: 0.5,
-          stagger: 0.01,
-        }),
-        '=-0.3'
+          ease: 'power4.in',
+        })
       )
-      .play();
-  };
-
-  const fromAnimation = () => {
-    timeline.current.reverse();
+      .add(() => {
+        if (typeof onCompleteCallback === 'function') {
+          onCompleteCallback();
+        }
+      });
   };
 
   const changeElement = (index) => {
-    startAnimation();
-    setTimeout(() => {
+    fromAnimation(() => {
       setActive(index);
-      fromAnimation();
-    }, 5000);
+    });
   };
 
   if (!elements.length || !colors.primary) return;
@@ -75,10 +125,8 @@ export default function Home() {
         active={active}
         setActive={setActive}
         elementsLength={elements.length}
-        textRef={textRef}
-        imagesRef={imagesRef}
+        refs={refs}
         changeElement={changeElement}
-        descriptionRef={descriptionRef}
       />
     </div>
   );
