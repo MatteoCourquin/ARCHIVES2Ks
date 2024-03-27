@@ -58,5 +58,20 @@
       "pokemon-2.jpg",
       "pokemon-3.jpg"
     ]
+  },
+  {
+    "colors": {
+      "primary": "#FE4BB1",
+      "secondary": "#3E3F44"
+    },
+    "title": "FLIP PHONES",
+    "legend": "Driiing Driiing... Hello ?",
+    "description": "Flip phones, also known as clamshell phones, have been an icon of mobile technology for many years. They made their debut in the 1990s and quickly gained popularity due to their compact design and practicality. Flip phones reached their peak of popularity in the 2000s, with iconic models such as the Motorola Razr and the Nokia 2720. They were often associated with a sense of sophistication and style and were frequently used as fashion accessories.",
+    "sticker": "sticker-flip-phones.png",
+    "images": [
+      "flip-phones-1.jpg",
+      "flip-phones-2.jpg",
+      "flip-phones-3.jpg"
+    ]
   }
 ]
