@@ -62,6 +62,7 @@ const View = ({
       </div>
 
       <div className='flex flex-col z-10'>
+        
         <div className='flex overflow-hidden w-[calc(100vw-260px)] pt-6'>
           <p
             className='transition-colors-all whitespace-nowrap animation-slider'

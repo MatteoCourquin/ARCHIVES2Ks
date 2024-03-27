@@ -1,27 +1,22 @@
-import Splitting from 'splitting';
 import gsap from 'gsap';
 
 const VariableFont = ({ color, title }) => {
 
-  Splitting({
-    target: ".textAnim",
-  });
-  
-  function updateText() {
-    gsap.to('.char', {
-    '--wght': 900,
-    color: color,
-    duration: 1,
-    repeat: 0,
-    stagger: {
-      from: 'start',
-      each: 0.1,
-    },
-    ease: 'back.inOut'
-  });
-} 
+//   function updateText() {
+//     gsap.to('.anim', {
+//       '--wght': 900,
+//       opacity: 1, 
+//       duration: 1,
+//       repeat: 0,
+//       stagger: {
+//         from: 'start',
+//         each: 0.1,
+//       },
+//       ease: 'back.inOut'
+//     });
+// } 
 
-  updateText();
+//   updateText();
 
   function updateTextMouse(e) {
   const textAnim = document.querySelector('.textAnim');
@@ -54,7 +49,7 @@ const VariableFont = ({ color, title }) => {
     weight = minWeight;
   }
 
-  gsap.to('.char', {
+  gsap.to('.anim', {
     '--wght': weight,
     duration: 0.5,
     stagger: {
@@ -72,7 +67,13 @@ window.addEventListener("mousemove", updateTextMouse);
     <div className='h-[270px]'>
         <h1 className='clash-display w-full whitespace-nowrap font-black text-[8vw] leading-none transition-colors-all textAnim'
           style={{ color: color }}>
-          {title}
+
+             {title.split('').map((letter, index) => (
+            <span key={index} className='inline-block anim'>
+              {letter === ' ' ? '\u00A0' : letter}
+            </span>
+          ))}
+
         </h1>
     </div>
   );
