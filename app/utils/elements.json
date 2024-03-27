@@ -103,5 +103,20 @@
       "friends-2.jpg",
       "friends-3.jpg"
     ]
+  },
+  {
+    "colors": {
+      "primary": "#EB942B",
+      "secondary": "#B02413"
+    },
+    "title": "THE LION KING",
+    "legend": "Hakuna Matata",
+    "description": "The Lion King is a beloved animated musical film produced by Walt Disney Feature Animation. The film tells the story of a young lion cub named Simba who, after the untimely death of his father Mufasa, must navigate the challenges of life to reclaim his rightful place as the king of the Pride Lands. Beyond its box office success, The Lion King has left a lasting legacy as one of Disney's most beloved and enduring films. Its themes, characters, and music continue to captivate audiences around the world, making it a timeless classic in the realm of animated cinema.",
+    "sticker": "sticker-lion-king.png",
+    "images": [
+      "lion-king-1.jpg",
+      "lion-king-2.jpg",
+      "lion-king-3.jpg"
+    ]
   }
 ]
