@@ -86,8 +86,9 @@ body {
 
 /* Variable Font */
 
-.textAnim .char {
+.textAnim .anim {
   font-variation-settings: 'wght' var(--wght);
+  opacity: 1;
 }
 
 
