@@ -7,6 +7,7 @@ const VariableFont = ({ color, title }) => {
     target: ".textAnim",
   });
   
+  function updateText() {
     gsap.to('.char', {
     '--wght': 900,
     color: color,
@@ -18,9 +19,11 @@ const VariableFont = ({ color, title }) => {
     },
     ease: 'back.inOut'
   });
+} 
 
+  updateText();
 
-  function updateText(e) {
+  function updateTextMouse(e) {
   const textAnim = document.querySelector('.textAnim');
   if (!textAnim) return;
 
@@ -62,11 +65,11 @@ const VariableFont = ({ color, title }) => {
   });
 };
 
-window.addEventListener("mousemove", updateText);
+window.addEventListener("mousemove", updateTextMouse);
 
 
   return (
-    <div>
+    <div className='h-[270px]'>
         <h1 className='clash-display w-full whitespace-nowrap font-black text-[8vw] leading-none transition-colors-all textAnim'
           style={{ color: color }}>
           {title}
