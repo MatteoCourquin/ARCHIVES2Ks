@@ -7,11 +7,11 @@
     "title": "THE MATRIX",
     "legend": "So, blue pill or red pill?",
     "description": "<b>The Matrix</b> is a groundbreaking science-fiction film directed by the Wachowski brothers, released in 1999. This iconic film marked a milestone in cinema history for its complex plot, groundbreaking visual effects and profound philosophical themes.<br/><br/>Beyond its immediate impact, <b>The Matrix</b> continues to provoke debate and diverse interpretations on subjects such as virtual reality, technology, social control and the quest for truth.",
-    "sticker": "matrix-sticker.png",
+    "sticker": "sticker-matrix.png",
     "images": [
-      "https://images.unsplash.com/photo-1630599375918-4426b69b520d?q=80&w=2234&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://images.unsplash.com/photo-1630599375918-4426b69b520d?q=80&w=2234&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://images.unsplash.com/photo-1630599375918-4426b69b520d?q=80&w=2234&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "matrix-1.jpg",
+      "matrix-2.jpg",
+      "matrix-3.jpg"
     ]
   },
   {
@@ -22,7 +22,7 @@
     "title": "SPICE GIRLS",
     "legend": "I wanna really wanna zig-a-zig ah!",
     "description": "The <b>Spice Girls</b> are a British musical group formed in London in 1994. Comprising five members - Melanie Brown (nicknamed Scary Spice), Melanie Chisholm (Sporty Spice), Emma Bunton (Baby Spice), Geri Halliwell (Ginger Spice) and Victoria Beckham (Posh Spice) - the group became one of the most striking pop phenomena of the 1990s.<br/><br/>They have also been acclaimed for their message of female empowerment and individuality, embodying the <b>Girl Power</b> ideals that have inspired generations of young girls around the world.",
-    "sticker": "spice-girls-sticker.png",
+    "sticker": "sticker-spice-girls.png",
     "images": [
       "spice-girls-1.jpg",
       "spice-girls-2.jpg",
