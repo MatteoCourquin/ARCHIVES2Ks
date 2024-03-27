@@ -186,7 +186,9 @@ export default function Home() {
     backgroundRef.current.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
   };
 
-  window.addEventListener('mousemove', handleMouseMove);
+  if (typeof window !== "undefined") {
+    window.addEventListener('mousemove', handleMouseMove);
+  }
 
   if (!elements.length || !colors.primary) return;
 

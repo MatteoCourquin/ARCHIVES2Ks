@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { useEffect } from 'react';
 
 const VariableFont = ({ color, title, titleRef }) => {
   const updateTextMouse = (e) => {
@@ -41,7 +42,9 @@ const VariableFont = ({ color, title, titleRef }) => {
     });
   };
 
-  window.addEventListener('mousemove', updateTextMouse);
+  if (typeof window !== "undefined") {
+    window.addEventListener('mousemove', updateTextMouse);
+  }
 
   return (
     <h1
