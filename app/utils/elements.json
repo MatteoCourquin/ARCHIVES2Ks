@@ -46,13 +46,13 @@
   },
   {
     "colors": {
-      "primary": "#FBD743",
-      "secondary": "#FF1F1F"
+      "primary": "#FFCB05",
+      "secondary": "#2F6EB5"
     },
     "title": "POKÉMON",
     "legend": "Gotta catch 'em all !",
     "description": "Pokémon is a media franchise developed by Nintendo, Game Freak and Creatures Inc. The Pokémon franchise has become one of the world's most popular and profitable entertainment franchises, encompassing a wide range of media, including video games, TV series, movies, trading card games, toys and much more. Today, the Game Boy Pokémon games continue to be revered by nostalgic gamers and are considered timeless classics of video game history.",
-    "sticker": "pokemon-sticker.png",
+    "sticker": "sticker-pokemon.png",
     "images": [
       "pokemon-1.jpg",
       "pokemon-2.jpg",
