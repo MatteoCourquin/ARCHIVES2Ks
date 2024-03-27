@@ -2,6 +2,19 @@ import gsap from 'gsap';
 
 const VariableFont = ({ color, title }) => {
 
+
+    gsap.to('.firstAnim', {
+      opacity: 1, 
+      duration: 0.5,
+      stagger: {
+        from: 'start',
+        each: 0.1,
+      },
+      ease: 'back.inOut'
+    })
+
+
+
   function updateTextMouse(e) {
   const textAnim = document.querySelector('.textAnim');
   if (!textAnim) return;
@@ -53,7 +66,7 @@ window.addEventListener("mousemove", updateTextMouse);
           style={{ color: color }}>
 
              {title.split('').map((letter, index) => (
-            <span key={index} className='inline-block anim'>
+            <span key={index} className='inline-block anim firstAnim'>
               {letter === ' ' ? '\u00A0' : letter}
             </span>
           ))}
