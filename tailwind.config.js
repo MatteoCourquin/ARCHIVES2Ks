@@ -11,7 +11,7 @@ module.exports = {
         layout: '260px 1fr',
       },
       borderRadius: {
-        main: '64px',
+        main: '16px',
       },
     },
   },
