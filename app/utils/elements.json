@@ -73,5 +73,20 @@
       "flip-phones-2.jpg",
       "flip-phones-3.jpg"
     ]
+  },
+  {
+    "colors": {
+      "primary": "#FD0213",
+      "secondary": "#2B4B84"
+    },
+    "title": "WORLD CUP 98",
+    "legend": "BUUUTTTTTTTTTTTT !!!",
+    "description": "In 1998, France hosted the FIFA World Cup, culminating in a historic final where the host nation, France triumphed over Brazil with a 3-0 victory, thanks to Zinedine Zidane's unforgettable headers and Emmanuel Petit's closing goal. This win awarded France their first World Cup title, uniting the country in celebration. The tournament stood out for introducing the golden goal rule in knockout stages and expanding the competition to 32 teams, enhancing the intensity of the matches.",
+    "sticker": "sticker-world-cup-98.png",
+    "images": [
+      "world-cup-98-1.jpg",
+      "world-cup-98-2.jpg",
+      "world-cup-98-3.jpg"
+    ]
   }
 ]
