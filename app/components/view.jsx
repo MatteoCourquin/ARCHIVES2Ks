@@ -2,6 +2,9 @@ import clsx from 'clsx';
 import { useContext, useState } from 'react';
 import { ColorsContext } from '../layout/default';
 import Arrow from './icons';
+import VariableFont from './variableFont';
+
+
 
 const View = ({
   description,
@@ -49,7 +52,9 @@ const View = ({
           )}
         </div>
       </div>
+
       <div className='flex flex-col z-10'>
+        
         <div className='flex overflow-hidden w-[calc(100vw-260px)] pt-6'>
           <p
             className='transition-colors-all whitespace-nowrap animation-slider'
@@ -111,12 +116,9 @@ const View = ({
                   </span>
                 ))}
               </p>
-              <h1
-                className='clash-display w-full whitespace-nowrap font-black text-[8vw] leading-none transition-colors-all'
-                style={{ color: colors.primary }}
-              >
-                {title}
-              </h1>
+
+              <VariableFont color={colors.primary} title={title}/>
+
             </div>
             <Arrow
               onClick={() =>

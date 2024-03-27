@@ -79,3 +79,19 @@ body {
 .skew-x-shakeng:hover {
   animation: skew-x-shakeng 1s infinite;
 }
+
+
+
+
+
+/* Variable Font */
+
+.textAnim .anim {
+  font-variation-settings: 'wght' var(--wght);
+  opacity: 1;
+}
+
+
+
+
+
