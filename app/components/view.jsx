@@ -88,7 +88,7 @@ const View = ({
                     'w-full h-full object-cover rounded-main image'
                   )}
                   style={{ boxShadow: `14px 14px 0px 0px ${colors.primary}` }}
-                  src={src ? src : ''}
+                  src={'/images/illustrations/' + src}
                   alt=''
                 />
               </div>
