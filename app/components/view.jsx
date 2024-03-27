@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ColorsContext } from '../layout/default';
 import Arrow from './icons';
 import clsx from 'clsx';
@@ -14,6 +14,8 @@ const View = ({
   elementsLength,
 }) => {
   const { colors } = useContext(ColorsContext);
+  const [hoveredIndex, setHoveredIndex] = useState(0);
+
   return (
     <div className='w-screen h-full grid grid-cols-layout content pt-16'>
       <div
@@ -61,14 +63,15 @@ const View = ({
           </p>
         </div>
         <div className='flex flex-col justify-between h-full pt-10 p-6'>
-          <div className='flex w-full gap-10 h-2/3 pr-4'>
+          <div className='flex w-full gap-10 h-4/6 pr-4' onMouseLeave={() => setHoveredIndex(0)}>
             {images.map((src, index) => (
               <div
                 key={index}
                 className={clsx(
-                  index == 0 ? 'w-1/3' : 'w-1/3',
-                  'h-full transition-all'
+                  index == hoveredIndex ? ' flex-grow basis-auto' : 'flex-shrink basis-0',
+                  'h-full transition-all min-w-44 duration-1000'
                 )}
+                onMouseOver={() => setHoveredIndex(index)}
               >
                 <img
                   className={clsx(
