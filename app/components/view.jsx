@@ -18,13 +18,6 @@ const View = ({
 }) => {
   const { colors } = useContext(ColorsContext);
 
-  const letters = description.split('');
-
-  // Utilisez map pour créer des éléments <span> autour de chaque lettre
-  const processedDescription = description
-    .replace(/<b>/g, '<strong>')
-    .replace(/<\/b>/g, '</strong>');
-
   return (
     <div className='w-screen h-full grid grid-cols-layout pt-16'>
       <div
@@ -32,13 +25,27 @@ const View = ({
         style={{ borderColor: colors.primary }}
       >
         <p
+          className='clash-display transition-colors-all'
+          style={{ color: colors.primary }}
+        >
+          {description.split('').map((letter, index) => (
+            <span
+              key={index}
+              className='inline-block'
+              ref={(el) => (descriptionRef.current[index] = el)}
+            >
+              {letter == ' ' ? '\u00A0' : letter}
+            </span>
+          ))}
+        </p>
+        {/* <p
           ref={descriptionRef}
           className='clash-display transition-colors-all'
           style={{ color: colors.primary }}
           dangerouslySetInnerHTML={{
             __html: description,
           }}
-        />
+        /> */}
         <div>
           {sticker && (
             <img

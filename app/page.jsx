@@ -44,11 +44,12 @@ export default function Home() {
       )
       .add(
         gsap.to(descriptionRef.current, {
-          y: 30,
-          rotate: 30,
           opacity: 0,
           ease: 'power4.inOut',
-        })
+          duration: 0.5,
+          stagger: 0.01,
+        }),
+        '=-0.3'
       )
       .play();
   };
@@ -62,7 +63,7 @@ export default function Home() {
     setTimeout(() => {
       setActive(index);
       fromAnimation();
-    }, 3000);
+    }, 5000);
   };
 
   if (!elements.length || !colors.primary) return;
