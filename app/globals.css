@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@keyframes skew-x-shakeng {
+  0% {
+    transform: skewX(-15deg) rotate(-10deg);
+  }
+
+  5% {
+    transform: skewX(15deg) rotate(10deg);
+  }
+
+  10% {
+    transform: skewX(-15deg) rotate(-10deg);
+  }
+
+  15% {
+    transform: skewX(15deg) rotate(10deg);
+  }
+
+  20% {
+    transform: skewX(0deg) rotate(0deg);
+  }
+
+  100% {
+    transform: skewX(0deg) rotate(0deg);
+  }
+}
+
+
 @keyframes animation-slider {
   0% {
     transform: translateX(0);
@@ -41,5 +69,9 @@ body {
 }
 
 .animation-slider {
-  animation: animation-slider 10s infinite linear;
+  animation: animation-slider 15s infinite linear;
+}
+
+.skew-x-shakeng:hover {
+  animation: skew-x-shakeng 1s infinite;
 }
