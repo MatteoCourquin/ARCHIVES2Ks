@@ -1,17 +1,7 @@
 import gsap from 'gsap';
 
 const VariableFont = ({ color, title, titleRef }) => {
-  // gsap.to('.firstAnim', {
-  //   opacity: 1,
-  //   duration: 0.5,
-  //   stagger: {
-  //     from: 'start',
-  //     each: 0.1,
-  //   },
-  //   ease: 'back.inOut',
-  // });
-
-  function updateTextMouse(e) {
+  const updateTextMouse = (e) => {
     const textAnim = document.querySelector('.textAnim');
     if (!textAnim) return;
 
@@ -49,7 +39,7 @@ const VariableFont = ({ color, title, titleRef }) => {
       },
       ease: 'none',
     });
-  }
+  };
 
   window.addEventListener('mousemove', updateTextMouse);
 
