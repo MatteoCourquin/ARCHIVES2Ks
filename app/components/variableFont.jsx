@@ -8,35 +8,35 @@ const VariableFont = ({ color, title, titleRef }) => {
 
     const textRect = textAnim.getBoundingClientRect();
 
-    const distanceX = Math.max(
-      Math.abs(e.clientX - textRect.left + textRect.width / 2) -
-        textRect.width / 2
-    );
-    const distanceY = Math.max(
-      Math.abs(e.clientY - textRect.top + textRect.height / 2) -
-        textRect.height / 2
-    );
+  const centerX = textRect.left + textRect.width / 2;
+  const centerY = textRect.top + textRect.height / 2;
 
-    const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+  const distanceX = Math.max(Math.abs(e.clientX - centerX) - textRect.width / 2, 0);
+  const distanceY = Math.max(Math.abs(e.clientY - centerY) - textRect.height / 2, 0);
 
-    const maxDistance = 400;
-    const minWeight = 100;
-    const maxWeight = 900;
-    let weight;
+  // Calculer la distance euclidienne depuis le bord le plus proche de l'élément
+  const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
 
-    if (distance < maxDistance) {
-      const distanceRatio = distance / maxDistance;
-      weight = maxWeight - distanceRatio * (maxWeight - minWeight);
-    } else {
-      weight = minWeight;
-    }
+  // Déterminer le poids de la police basé sur la distance
+  const maxDistance = 400; // Distance maximale pour influencer le poids
+  const minWeight = 400;
+  const maxWeight = 900;
+  let weight;
+
+  // Ajuster le poids de la police en fonction de la distance à l'élément
+  if (distance < maxDistance) {
+    const distanceRatio = distance / maxDistance;
+    weight = maxWeight - (distanceRatio * (maxWeight - minWeight));
+  } else {
+    weight = minWeight;
+  }
 
     gsap.to('.anim ', {
       '--wght': weight,
       duration: 0.2,
       stagger: {
         from: 'start',
-        each: 0.01,
+        each: 0.02,
       },
       ease: 'none',
     });

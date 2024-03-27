@@ -73,5 +73,35 @@
       "flip-phones-2.jpg",
       "flip-phones-3.jpg"
     ]
+  },
+  {
+    "colors": {
+      "primary": "#A70215",
+      "secondary": "#097CEA"
+    },
+    "title": "WORLD CUP 98",
+    "legend": "BUUUT ! Et c'est le but !",
+    "description": "In 1998, France hosted the FIFA World Cup, culminating in a historic final where the host nation, France triumphed over Brazil with a 3-0 victory, thanks to Zinedine Zidane's unforgettable headers and Emmanuel Petit's closing goal. This win awarded France their first World Cup title, uniting the country in celebration. The tournament stood out for introducing the golden goal rule in knockout stages and expanding the competition to 32 teams, enhancing the intensity of the matches.",
+    "sticker": "sticker-world-cup.png",
+    "images": [
+      "world-cup-1.jpg",
+      "world-cup-2.jpg",
+      "world-cup-3.jpg"
+    ]
+  },
+  {
+    "colors": {
+      "primary": "#FFC72C",
+      "secondary": "#DA291C"
+    },
+"title": "HAPPY MEAL",
+    "legend": "Yaay ! A happy meal toy!",
+    "description": "In the 1990s to 2000s, McDonald's Happy Meals became synonymous with childhood joy, largely thanks to the iconic toys included with each meal. From promotional tie-ins with blockbuster movies to miniature versions of popular video games, these toys sparked the imaginations of countless children. The visit to McDonald's promised not just a tasty meal but also the excitement of uncovering which new toy would be added to their collection, making Happy Meals a cherished part of youth culture.",
+    "sticker": "mc-donalds.png",
+    "images": [
+      "mc-donalds-1.jpg",
+      "mc-donalds-2.jpg",
+      "mc-donalds-3.jpg"
+    ]
   }
 ]
