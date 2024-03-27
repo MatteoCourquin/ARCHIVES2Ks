@@ -76,8 +76,8 @@
   },
   {
     "colors": {
-      "primary": "#A70215",
-      "secondary": "#097CEA"
+      "primary": "#FD0213",
+      "secondary": "#2B4B84"
     },
     "title": "WORLD CUP 98",
     "legend": "BUUUT ! Et c'est le but !",
@@ -89,12 +89,12 @@
       "world-cup-3.jpg"
     ]
   },
-  {
+    {
     "colors": {
       "primary": "#FFC72C",
       "secondary": "#DA291C"
     },
-"title": "HAPPY MEAL",
+    "title": "HAPPY MEAL",
     "legend": "Yaay ! A happy meal toy!",
     "description": "In the 1990s to 2000s, McDonald's Happy Meals became synonymous with childhood joy, largely thanks to the iconic toys included with each meal. From promotional tie-ins with blockbuster movies to miniature versions of popular video games, these toys sparked the imaginations of countless children. The visit to McDonald's promised not just a tasty meal but also the excitement of uncovering which new toy would be added to their collection, making Happy Meals a cherished part of youth culture.",
     "sticker": "mc-donalds.png",
@@ -102,6 +102,36 @@
       "mc-donalds-1.jpg",
       "mc-donalds-2.jpg",
       "mc-donalds-3.jpg"
+    ]
+  },
+  {
+    "colors": {
+      "primary": "#E8E8E8",
+      "secondary": "#191919"
+    },
+    "title": "FRIENDS",
+    "legend": "They don't know that we know they know we know",
+    "description": "Friends is an American television sitcom created by David Crane and Marta Kauffman. The show revolves around a group of six friends living in Manhattan: Ross Geller, Rachel Green, Monica Geller, Chandler Bing, Joey Tribbiani, and Phoebe Buffay. Even after its conclusion, Friends remains a cultural phenomenon, with a dedicated fanbase and continued popularity through reruns and streaming platforms. Its timeless humor and relatable characters continue to resonate with audiences around the world, cementing its status as a classic sitcom.",
+    "sticker": "sticker-friends.png",
+    "images": [
+      "friends-1.jpg",
+      "friends-2.jpg",
+      "friends-3.jpg"
+    ]
+  },
+  {
+    "colors": {
+      "primary": "#EB942B",
+      "secondary": "#B02413"
+    },
+    "title": "THE LION KING",
+    "legend": "Hakuna Matata",
+    "description": "The Lion King is a beloved animated musical film produced by Walt Disney Feature Animation. The film tells the story of a young lion cub named Simba who, after the untimely death of his father Mufasa, must navigate the challenges of life to reclaim his rightful place as the king of the Pride Lands. Beyond its box office success, The Lion King has left a lasting legacy as one of Disney's most beloved and enduring films. Its themes, characters, and music continue to captivate audiences around the world, making it a timeless classic in the realm of animated cinema.",
+    "sticker": "sticker-lion-king.png",
+    "images": [
+      "lion-king-1.jpg",
+      "lion-king-2.jpg",
+      "lion-king-3.jpg"
     ]
   }
 ]
