@@ -3,12 +3,21 @@ import { ColorsContext } from '../layout/default';
 import Arrow from './icons';
 import clsx from 'clsx';
 
-const View = ({ description, slider, legend, title, images }) => {
+const View = ({
+  description,
+  legend,
+  title,
+  images,
+  active,
+  sticker,
+  setActive,
+  elementsLength,
+}) => {
   const { colors } = useContext(ColorsContext);
   return (
-    <div className='w-screen h-full grid grid-cols-layout content pt-16 fixed'>
+    <div className='w-screen h-full grid grid-cols-layout content pt-16'>
       <div
-        className='border-r-2 p-6 z-10 transition-colors-all'
+        className='border-r-2 p-6 z-10 transition-colors-all flex flex-col justify-between'
         style={{ borderColor: colors.primary }}
       >
         <p
@@ -18,6 +27,15 @@ const View = ({ description, slider, legend, title, images }) => {
             __html: description,
           }}
         />
+        <div>
+          {sticker && (
+            <img
+              className='skew-x-shakeng'
+              src={'/images/stickers/' + sticker}
+              alt=''
+            />
+          )}
+        </div>
       </div>
       <div className='flex flex-col z-10'>
         <div className='flex overflow-hidden w-[calc(100vw-260px)] pt-6'>
@@ -25,27 +43,33 @@ const View = ({ description, slider, legend, title, images }) => {
             className='transition-colors-all whitespace-nowrap animation-slider'
             style={{ color: colors.primary }}
           >
-            {slider} • {slider} • {slider} • {slider} • {slider} • {slider} •{' '}
-            {slider} • {slider} • {slider} • {slider} • {slider} • {slider} •{' '}
-            {slider} • {slider} • {slider} • {slider} • {slider} • {slider} •{' '}
-            {slider} • {slider} • {slider} • {slider} • {slider} • {slider} •{' '}
-            {slider} • {slider} • {slider} • {slider} • {slider} • {slider} •{' '}
+            {title} • {title} • {title} • {title} • {title} • {title} • {title}{' '}
+            • {title} • {title} • {title} • {title} • {title} • {title} •{' '}
+            {title} • {title} • {title} • {title} • {title} • {title} • {title}{' '}
+            • {title} • {title} • {title} • {title} • {title} • {title} •{' '}
+            {title} • {title} • {title} • {title} •{' '}
           </p>
           <p
             className='transition-colors-all whitespace-nowrap animation-slider'
             style={{ color: colors.primary }}
           >
-            {slider} • {slider} • {slider} • {slider} • {slider} • {slider} •{' '}
-            {slider} • {slider} • {slider} • {slider} • {slider} • {slider} •{' '}
-            {slider} • {slider} • {slider} • {slider} • {slider} • {slider} •{' '}
-            {slider} • {slider} • {slider} • {slider} • {slider} • {slider} •{' '}
-            {slider} • {slider} • {slider} • {slider} • {slider} • {slider} •{' '}
+            {title} • {title} • {title} • {title} • {title} • {title} • {title}{' '}
+            • {title} • {title} • {title} • {title} • {title} • {title} •{' '}
+            {title} • {title} • {title} • {title} • {title} • {title} • {title}{' '}
+            • {title} • {title} • {title} • {title} • {title} • {title} •{' '}
+            {title} • {title} • {title} • {title} •{' '}
           </p>
         </div>
         <div className='flex flex-col justify-between h-full pt-10 p-6'>
           <div className='flex w-full gap-10 h-2/3 pr-4'>
             {images.map((src, index) => (
-              <div key={index} className='w-1/3 h-full transition-all'>
+              <div
+                key={index}
+                className={clsx(
+                  index == 0 ? 'w-1/3' : 'w-1/3',
+                  'h-full transition-all'
+                )}
+              >
                 <img
                   className={clsx(
                     'w-full h-full object-cover rounded-main transition-colors-all image'
@@ -57,7 +81,6 @@ const View = ({ description, slider, legend, title, images }) => {
               </div>
             ))}
           </div>
-
           <div className='flex justify-between items-end'>
             <div>
               <p
@@ -73,7 +96,12 @@ const View = ({ description, slider, legend, title, images }) => {
                 {title}
               </h1>
             </div>
-            <Arrow color={colors.primary} />
+            <Arrow
+              onClick={() =>
+                setActive(active >= elementsLength - 1 ? 0 : active + 1)
+              }
+              color={colors.primary}
+            />
           </div>
         </div>
       </div>
