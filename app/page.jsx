@@ -112,6 +112,7 @@ export default function Home() {
         gsap.to('.anim', {
           '--wght': 900,
           opacity: 0, 
+          duration: 0.5,
           stagger: {
             from: 'start',
             each: 0.1,
