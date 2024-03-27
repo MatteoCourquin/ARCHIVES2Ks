@@ -11,10 +11,8 @@ const View = ({
   active,
   sticker,
   elementsLength,
-  textRef,
-  imagesRef,
+  refs,
   changeElement,
-  descriptionRef,
 }) => {
   const { colors } = useContext(ColorsContext);
 
@@ -31,28 +29,22 @@ const View = ({
           {description.split('').map((letter, index) => (
             <span
               key={index}
-              className='inline-block'
-              ref={(el) => (descriptionRef.current[index] = el)}
+              className='inline-block -translate-y-8 opacity-0'
+              ref={(el) => (refs.descriptionRef.current[index] = el)}
             >
               {letter == ' ' ? '\u00A0' : letter}
             </span>
           ))}
         </p>
-        {/* <p
-          ref={descriptionRef}
-          className='clash-display transition-colors-all'
-          style={{ color: colors.primary }}
-          dangerouslySetInnerHTML={{
-            __html: description,
-          }}
-        /> */}
         <div>
           {sticker && (
-            <img
-              className='skew-x-shakeng'
-              src={'/images/stickers/' + sticker}
-              alt=''
-            />
+            <div ref={refs.stickerRef} className='opacity-0 rotate-180'>
+              <img
+                className='skew-x-shakeng'
+                src={'/images/stickers/' + sticker}
+                alt=''
+              />
+            </div>
           )}
         </div>
       </div>
@@ -62,21 +54,21 @@ const View = ({
             className='transition-colors-all whitespace-nowrap animation-slider'
             style={{ color: colors.primary }}
           >
-            {title} • {title} • {title} • {title} • {title} • {title} • {title}{' '}
-            • {title} • {title} • {title} • {title} • {title} • {title} •{' '}
-            {title} • {title} • {title} • {title} • {title} • {title} • {title}{' '}
-            • {title} • {title} • {title} • {title} • {title} • {title} •{' '}
-            {title} • {title} • {title} • {title} •{' '}
+            {Array(20)
+              .fill()
+              .map((_, index) => (
+                <span key={index}>{title} • </span>
+              ))}
           </p>
           <p
             className='transition-colors-all whitespace-nowrap animation-slider'
             style={{ color: colors.primary }}
           >
-            {title} • {title} • {title} • {title} • {title} • {title} • {title}{' '}
-            • {title} • {title} • {title} • {title} • {title} • {title} •{' '}
-            {title} • {title} • {title} • {title} • {title} • {title} • {title}{' '}
-            • {title} • {title} • {title} • {title} • {title} • {title} •{' '}
-            {title} • {title} • {title} • {title} •{' '}
+            {Array(20)
+              .fill()
+              .map((_, index) => (
+                <span key={index}>{title} • </span>
+              ))}
           </p>
         </div>
         <div className='flex flex-col justify-between h-full pt-10 p-6'>
@@ -90,9 +82,9 @@ const View = ({
                 )}
               >
                 <img
-                  ref={(el) => (imagesRef.current[index] = el)}
+                  ref={(el) => (refs.imagesRef.current[index] = el)}
                   className={clsx(
-                    'w-full h-full object-cover rounded-main image'
+                    'w-full h-full object-cover rounded-main image translate-x-96 opacity-0'
                   )}
                   style={{ boxShadow: `14px 14px 0px 0px ${colors.primary}` }}
                   src={'/images/illustrations/' + src}
@@ -110,8 +102,8 @@ const View = ({
                 {legend.split('').map((letter, index) => (
                   <span
                     key={index}
-                    ref={(el) => (textRef.current[index] = el)}
-                    className='inline-block'
+                    ref={(el) => (refs.textRef.current[index] = el)}
+                    className='inline-block -translate-y-8 opacity-0'
                   >
                     {letter == ' ' ? '\u00A0' : letter}
                   </span>
@@ -125,10 +117,9 @@ const View = ({
               </h1>
             </div>
             <Arrow
-              onClick={() => {
-                // setActive(active >= elementsLength - 1 ? 0 : active + 1);
-                changeElement(active >= elementsLength - 1 ? 0 : active + 1);
-              }}
+              onClick={() =>
+                changeElement(active >= elementsLength - 1 ? 0 : active + 1)
+              }
               color={colors.primary}
             />
           </div>

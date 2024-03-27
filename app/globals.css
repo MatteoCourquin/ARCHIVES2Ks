@@ -62,10 +62,14 @@ body {
   font-family: 'Good Timing';
 }
 
+.rotate-3280 {
+  transform: rotate(3280deg);
+}
+
 .transition-colors-all {
   /* transition-property: background-color, border-color, color, fill, stroke; */
   transition-property: all;
-  transition-duration: .3s;
+  transition-duration: 1s;
 }
 
 .animation-slider {
