@@ -1,35 +1,41 @@
 import gsap from 'gsap';
+import { useTouchDevice } from '../utils/states';
 import { useEffect } from 'react';
 
 const VariableFont = ({ color, title, titleRef }) => {
+  const isTouchDevice = useTouchDevice();
+
   const updateTextMouse = (e) => {
     const textAnim = document.querySelector('.textAnim');
     if (!textAnim) return;
 
     const textRect = textAnim.getBoundingClientRect();
 
-  const centerX = textRect.left + textRect.width / 2;
-  const centerY = textRect.top + textRect.height / 2;
+    const centerX = textRect.left + textRect.width / 2;
+    const centerY = textRect.top + textRect.height / 2;
 
-  const distanceX = Math.max(Math.abs(e.clientX - centerX) - textRect.width / 2, 0);
-  const distanceY = Math.max(Math.abs(e.clientY - centerY) - textRect.height / 2, 0);
+    const distanceX = Math.max(
+      Math.abs(e.clientX - centerX) - textRect.width / 2,
+      0
+    );
+    const distanceY = Math.max(
+      Math.abs(e.clientY - centerY) - textRect.height / 2,
+      0
+    );
 
-  // Calculer la distance euclidienne depuis le bord le plus proche de l'élément
-  const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+    const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
 
-  // Déterminer le poids de la police basé sur la distance
-  const maxDistance = 400; // Distance maximale pour influencer le poids
-  const minWeight = 400;
-  const maxWeight = 900;
-  let weight;
+    const maxDistance = 400;
+    const minWeight = 400;
+    const maxWeight = 900;
+    let weight;
 
-  // Ajuster le poids de la police en fonction de la distance à l'élément
-  if (distance < maxDistance) {
-    const distanceRatio = distance / maxDistance;
-    weight = maxWeight - (distanceRatio * (maxWeight - minWeight));
-  } else {
-    weight = minWeight;
-  }
+    if (distance < maxDistance) {
+      const distanceRatio = distance / maxDistance;
+      weight = maxWeight - distanceRatio * (maxWeight - minWeight);
+    } else {
+      weight = minWeight;
+    }
 
     gsap.to('.anim ', {
       '--wght': weight,
@@ -42,9 +48,11 @@ const VariableFont = ({ color, title, titleRef }) => {
     });
   };
 
-  if (typeof window !== "undefined") {
-    window.addEventListener('mousemove', updateTextMouse);
-  }
+  useEffect(() => {
+    if (typeof window !== 'undefined' || !isTouchDevice) {
+      window.addEventListener('mousemove', updateTextMouse);
+    }
+  }, []);
 
   return (
     <h1

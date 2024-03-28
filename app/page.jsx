@@ -4,8 +4,9 @@ import gsap from 'gsap';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { ColorsContext } from '../app/layout/default';
 import View from './components/view';
-import elementsJSON from './utils/elements.json';
+import elementsJSON from './data/elements.json';
 import Background from './components/background';
+import { useTouchDevice } from './utils/states';
 
 export default function Home() {
   const [elements] = useState(elementsJSON);
@@ -18,6 +19,7 @@ export default function Home() {
   const titleRef = useRef([]);
   const stickerRef = useRef();
   const backgroundRef = useRef();
+  const isTouchDevice = useTouchDevice();
   const refs = { textRef, imagesRef, descriptionRef, stickerRef, titleRef };
 
   useEffect(() => {
@@ -180,15 +182,17 @@ export default function Home() {
   };
 
   const handleMouseMove = (e) => {
-    if (backgroundRef === undefined) return;
+    if (backgroundRef === undefined || isTouchDevice) return;
     const x = e.clientX - window.innerWidth / 2;
     const y = e.clientY - window.innerHeight / 2;
     backgroundRef.current.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
   };
 
-  if (typeof window !== "undefined") {
-    window.addEventListener('mousemove', handleMouseMove);
-  }
+  useEffect(() => {
+    if (typeof window !== 'undefined' || !isTouchDevice) {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
+  }, []);
 
   if (!elements.length || !colors.primary) return;
 

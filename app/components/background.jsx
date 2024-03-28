@@ -1,7 +1,7 @@
 const Background = ({ color, refBackground }) => {
   return (
     <div
-      className='fixed top-[50vh] left-[50vw] w-[250vw] h-[250vw] min-w-[250vw] min-h-[250vh] -translate-x-1/2 -translate-y-1/2'
+      className='fixed top-[50vh] left-[50vw] min-w-[300vw] min-h-[300vh] aspect-square -translate-x-1/2 -translate-y-1/2'
       ref={refBackground}
     >
       <svg
