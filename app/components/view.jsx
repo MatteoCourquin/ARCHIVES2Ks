@@ -42,7 +42,7 @@ const View = ({
           {sticker && (
             <div ref={refs.stickerRef} className='opacity-0 rotate-180'>
               <img
-                className='skew-x-shakeng'
+                className='skew-x-shakeng select-none'
                 src={'/images/stickers/' + sticker}
                 alt=''
               />
@@ -92,7 +92,7 @@ const View = ({
               >
                 <img
                   ref={(el) => (refs.imagesRef.current[index] = el)}
-                  className='w-full h-full object-cover rounded-main image translate-x-96 opacity-0'
+                  className='w-full h-full object-cover rounded-main image translate-x-96 opacity-0 select-none'
                   style={{ boxShadow: `14px 14px 0px 0px ${colors.primary}` }}
                   src={src ? '/images/illustrations/' + src : ''}
                   alt=''
