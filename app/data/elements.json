@@ -133,5 +133,20 @@
       "lion-king-2.jpg",
       "lion-king-3.jpg"
     ]
+  },
+  {
+    "colors": {
+      "primary": "#F0D6A8",
+      "secondary": "#98282B"
+    },
+    "title": "HARRY POTTER",
+    "legend": "Wingardium Leviosa",
+    "description": "Harry Potter is a globally renowned fantasy book series written by British author J.K. Rowling. The series follows the life and adventures of a young wizard, Harry Potter, and his friends Hermione Granger and Ron Weasley, as they attend Hogwarts School of Witchcraft and Wizardry. Published between 1997 and 2007, the Harry Potter series has become one of the best-selling book series in history, with over 500 million copies sold worldwide. It has been translated into numerous languages and has captivated readers of all ages with its richly imagined world of magic, adventure, and friendship.",
+    "sticker": "sticker-harry-potter.png",
+    "images": [
+      "harry-potter-1.jpg",
+      "harry-potter-2.jpg",
+      "harry-potter-3.jpg"
+    ]
   }
 ]

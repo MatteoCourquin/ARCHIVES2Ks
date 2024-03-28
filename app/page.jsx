@@ -134,44 +134,6 @@ export default function Home() {
           onCompleteCallback();
         }
       })
-      // .add(
-      //   gsap.to('.anim', {
-      //     '--wght': 900,
-      //     opacity: 0,
-      //     duration: 0.5,
-      //     stagger: {
-      //       from: 'start',
-      //       each: 0.1,
-      //     },
-      //     ease: 'back.inOut',
-      //   })
-      // )
-      // .add(
-      //   gsap.to('.textAnim', {
-      //     opacity: 0,
-      //     ease: 'power4.inOut',
-      //   })
-      // )
-      // .add(
-      //   gsap.to('.anim', {
-      //     '--wght': 900,
-      //     opacity: 0,
-      //     repeat: 0,
-      //     // duration: 0.5,
-      //     stagger: {
-      //       from: 'start',
-      //       each: 0.1,
-      //     },
-      //     ease: 'back.inOut',
-      //   })
-      // )
-      // .add(
-      //   gsap.to('.textAnim', {
-      //     opacity: 0,
-      //     ease: 'power4.inOut',
-      //   })
-      // )
-
       .play();
   };
 
