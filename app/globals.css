@@ -84,12 +84,11 @@ body {
   animation: skew-x-shakeng 1s infinite;
 }
 
-
-
-
-
-/* Variable Font */
-
 .textAnim .anim {
   font-variation-settings: 'wght' var(--wght);
+}
+
+.selection *::selection {
+  color: var(--highlighted-text);
+  background: var(--highlighted-background);
 }

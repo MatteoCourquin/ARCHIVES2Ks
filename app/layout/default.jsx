@@ -14,8 +14,12 @@ const Layout = ({ children }) => {
   return (
     <ColorsContext.Provider value={{ colors, setColors }}>
       <div
-        className='w-screen h-screen z-0 transition-colors-all'
-        style={{ backgroundColor: colors.secondary }}
+        className='w-screen h-screen z-0 transition-colors-all selection'
+        style={{
+          backgroundColor: colors.secondary,
+          '--highlighted-text': colors.secondary,
+          '--highlighted-background': colors.primary,
+        }}
       >
         <MobilAlert colors={colors} />
         <header
