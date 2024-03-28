@@ -62,9 +62,17 @@ body {
   font-family: 'Good Timing';
 }
 
+.rotate-3280 {
+  transform: rotate(3280deg);
+}
+
 .transition-colors-all {
-  /* transition-property: background-color, border-color, color, fill, stroke; */
-  transition-property: all;
+  transition-property: background-color, border-color, color, fill, stroke, stop-color;
+  transition-duration: 1s;
+}
+
+.transition-width-all {
+  transition-property: width;
   transition-duration: .3s;
 }
 
@@ -74,4 +82,14 @@ body {
 
 .skew-x-shakeng:hover {
   animation: skew-x-shakeng 1s infinite;
+}
+
+
+
+
+
+/* Variable Font */
+
+.textAnim .anim {
+  font-variation-settings: 'wght' var(--wght);
 }

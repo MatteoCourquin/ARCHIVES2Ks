@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useContext, useState } from 'react';
 import { ColorsContext } from '../layout/default';
 import Arrow from './icons';
+import VariableFont from './variableFont';
 
 const View = ({
   description,
@@ -9,15 +10,14 @@ const View = ({
   title,
   images,
   active,
+  setActive,
   sticker,
   elementsLength,
-  textRef,
-  imagesRef,
+  refs,
   changeElement,
-  descriptionRef,
 }) => {
   const { colors } = useContext(ColorsContext);
-  const [hoveredIndex, setHoveredIndex] = useState(0)
+  const [hoveredIndex, setHoveredIndex] = useState(0);
 
   return (
     <div className='w-screen h-full grid grid-cols-layout pt-16'>
@@ -32,71 +32,72 @@ const View = ({
           {description.split('').map((letter, index) => (
             <span
               key={index}
-              className='inline-block'
-              ref={(el) => (descriptionRef.current[index] = el)}
+              className='inline-block -translate-y-8 opacity-0'
+              ref={(el) => (refs.descriptionRef.current[index] = el)}
             >
               {letter == ' ' ? '\u00A0' : letter}
             </span>
           ))}
         </p>
-        {/* <p
-          ref={descriptionRef}
-          className='clash-display transition-colors-all'
-          style={{ color: colors.primary }}
-          dangerouslySetInnerHTML={{
-            __html: description,
-          }}
-        /> */}
         <div>
           {sticker && (
-            <img
-              className='skew-x-shakeng'
-              src={'/images/stickers/' + sticker}
-              alt=''
-            />
+            <div ref={refs.stickerRef} className='opacity-0 rotate-180'>
+              <img
+                className='skew-x-shakeng'
+                src={'/images/stickers/' + sticker}
+                alt=''
+              />
+            </div>
           )}
         </div>
       </div>
+
       <div className='flex flex-col z-10'>
         <div className='flex overflow-hidden w-[calc(100vw-260px)] pt-6'>
           <p
             className='transition-colors-all whitespace-nowrap animation-slider'
             style={{ color: colors.primary }}
           >
-            {title} • {title} • {title} • {title} • {title} • {title} • {title}{' '}
-            • {title} • {title} • {title} • {title} • {title} • {title} •{' '}
-            {title} • {title} • {title} • {title} • {title} • {title} • {title}{' '}
-            • {title} • {title} • {title} • {title} • {title} • {title} •{' '}
-            {title} • {title} • {title} • {title} •{' '}
+            {Array(20)
+              .fill()
+              .map((_, index) => (
+                <span key={index}>{title} • </span>
+              ))}
           </p>
           <p
             className='transition-colors-all whitespace-nowrap animation-slider'
             style={{ color: colors.primary }}
           >
-            {title} • {title} • {title} • {title} • {title} • {title} • {title}{' '}
-            • {title} • {title} • {title} • {title} • {title} • {title} •{' '}
-            {title} • {title} • {title} • {title} • {title} • {title} • {title}{' '}
-            • {title} • {title} • {title} • {title} • {title} • {title} •{' '}
-            {title} • {title} • {title} • {title} •{' '}
+            {Array(20)
+              .fill()
+              .map((_, index) => (
+                <span key={index}>{title} • </span>
+              ))}
           </p>
         </div>
         <div className='flex flex-col justify-between h-full pt-10 p-6'>
-          <div className='flex w-full gap-10 h-4/6 pr-4' onMouseLeave={() => setHoveredIndex(0)}>
+          <div
+            className='flex w-full gap-10 h-4/6 pr-4'
+            onMouseLeave={() => setHoveredIndex(0)}
+          >
             {images.map((src, index) => (
               <div
                 key={index}
                 className={clsx(
-                  index == hoveredIndex ? ' flex-grow w-3/5' : 'flex-shrink w-1/5',
+                  index == hoveredIndex
+                    ? ' flex-grow w-3/5'
+                    : 'flex-shrink w-1/5',
                   'h-full transition-all min-w-44 duration-300'
                 )}
                 onMouseOver={() => setHoveredIndex(index)}
               >
                 <img
+                  ref={(el) => (refs.imagesRef.current[index] = el)}
                   className={clsx(
-                    'w-full h-full object-cover rounded-main transition-colors-all image'
+                    'w-full h-full object-cover rounded-main image translate-x-96 opacity-0'
                   )}
                   style={{ boxShadow: `14px 14px 0px 0px ${colors.primary}` }}
-                  src={src ? '/images/illustrations/'+src : ''}
+                  src={src ? '/images/illustrations/' + src : ''}
                   alt=''
                 />
               </div>
@@ -111,25 +112,39 @@ const View = ({
                 {legend.split('').map((letter, index) => (
                   <span
                     key={index}
-                    ref={(el) => (textRef.current[index] = el)}
-                    className='inline-block'
+                    ref={(el) => (refs.textRef.current[index] = el)}
+                    className='inline-block -translate-y-8 opacity-0'
                   >
                     {letter == ' ' ? '\u00A0' : letter}
                   </span>
                 ))}
               </p>
-              <h1
-                className='clash-display w-full whitespace-nowrap font-black text-[8vw] leading-none transition-colors-all'
-                style={{ color: colors.primary }}
-              >
-                {title}
-              </h1>
+
+              <VariableFont
+                color={colors.primary}
+                title={title}
+                titleRef={refs.titleRef}
+              />
+              <div className='flex gap-2 pt-2 px-12'>
+                {Array(elementsLength)
+                  .fill()
+                  .map((_, index) => (
+                    <div
+                      key={index}
+                      style={{ backgroundColor: colors.primary }}
+                      onClick={() => changeElement(index)}
+                      className={clsx(
+                        active === index ? 'w-6 opacity-100' : 'w-3 opacity-40',
+                        'h-3 rounded-full transition-colors-all transition-width-all cursor-pointer'
+                      )}
+                    ></div>
+                  ))}
+              </div>
             </div>
             <Arrow
-              onClick={() => {
-                // setActive(active >= elementsLength - 1 ? 0 : active + 1);
-                changeElement(active >= elementsLength - 1 ? 0 : active + 1);
-              }}
+              onClick={() =>
+                changeElement(active >= elementsLength - 1 ? 0 : active + 1)
+              }
               color={colors.primary}
             />
           </div>
