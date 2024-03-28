@@ -191,8 +191,29 @@ export default function Home() {
   useEffect(() => {
     if (typeof window !== 'undefined' || !isTouchDevice) {
       window.addEventListener('mousemove', handleMouseMove);
+      let index
+      document.onkeydown = (e) => {
+        switch(e.code){
+          case 'ArrowRight':
+            console.log(e.code)
+            console.log(active)
+            index = active >= elements.length - 1 ? 0 : active + 1
+            console.log(index)
+            changeElement(index)
+            break
+          case 'ArrowLeft':
+            console.log(e.code)
+            console.log(active)
+            index = active <= 0 ? elements.length - 1 : active - 1
+            console.log(index)
+            changeElement(index)
+            break
+          default:
+            break
+        }
+      }
     }
-  }, []);
+  }, [active]);
 
   if (!elements.length || !colors.primary) return;
 
