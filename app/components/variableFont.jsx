@@ -1,6 +1,6 @@
 import gsap from 'gsap';
-import { useTouchDevice } from '../utils/states';
 import { useEffect } from 'react';
+import { useTouchDevice } from '../utils/states';
 
 const VariableFont = ({ color, title, titleRef }) => {
   const isTouchDevice = useTouchDevice();

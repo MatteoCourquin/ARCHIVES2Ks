@@ -10,7 +10,6 @@ const View = ({
   title,
   images,
   active,
-  setActive,
   sticker,
   elementsLength,
   refs,
@@ -93,9 +92,7 @@ const View = ({
               >
                 <img
                   ref={(el) => (refs.imagesRef.current[index] = el)}
-                  className={clsx(
-                    'w-full h-full object-cover rounded-main image translate-x-96 opacity-0'
-                  )}
+                  className='w-full h-full object-cover rounded-main image translate-x-96 opacity-0'
                   style={{ boxShadow: `14px 14px 0px 0px ${colors.primary}` }}
                   src={src ? '/images/illustrations/' + src : ''}
                   alt=''
